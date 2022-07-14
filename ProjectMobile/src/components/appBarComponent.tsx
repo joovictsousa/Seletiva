@@ -5,7 +5,7 @@ import styles from "../styles/appBar";
 import { Pressable, Text, View } from "react-native";
 
 export function AppBarComponent(props) {
-  const screens = ['home', 'maps', 'codeScanner', 'contact']
+  const screens = ['home', 'maps', 'codeScanner', 'contact','data']
   const [valid, setValid] = useState(false)
 
   function changeScreen(value) {
@@ -30,11 +30,13 @@ export function AppBarComponent(props) {
           </IconButton>
         )}
       />
-      {(valid && (props.screen !== 'maps' || props.screen !== 'codeScanner')) && screens.map((element, index) => {
+      {valid && screens.map((element, index) => {
         return (
-          <View>
+          <View
+            key={index}
+          >
             {
-              (props.screen !== element) && (
+              (props.screen !== element && (props.screen !== 'maps' && props.screen !== 'codeScanner') ) && (
                 <View style={styles.viewListItem}>
                   <ListItem
                     title={element}

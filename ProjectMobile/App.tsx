@@ -6,7 +6,7 @@ import { ContentController } from './src/components/contentComponent';
 import { MapsComponent } from './src/components/mapsComponent';
 
 export default function App() {
-  const [choice, setChoice] = useState("contact");
+  const [choice, setChoice] = useState("home");
 
   return (
     <View style={styles.container}>
